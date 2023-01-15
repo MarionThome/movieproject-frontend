@@ -1,7 +1,11 @@
 import styles from '../styles/Home.module.css';
-
+import {useRouter} from 'next/router'
 
 function Home() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/feelings")
+  }
   return (
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -9,7 +13,7 @@ function Home() {
         </h1>
         <div>
         <h2>  Let's find you something to watch tonight</h2>
-        <button className={styles.button}> Start </button>
+        <button className={styles.button} onClick = {() => handleClick()}> Start </button>
         </div>
       </main>
 
