@@ -20,7 +20,7 @@ function App({ Component, pageProps }) {
           style={{
             backgroundImage: `url(${popcorn.src})`,
             height: "100vh",
-            width: "33%",
+            width: "40%",
             //backgroundPosition : 'bottom',
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

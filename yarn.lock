@@ -2723,6 +2723,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   "version" "18.2.0"
 
+"react-slide-fade-in@^1.0.9":
+  "integrity" "sha512-nc5kk+jA3iYKE0IhTb0KViapmv1WdOiWow/Y7xMCqUQQZFWMHSEBfmYGjaqQhQeejW/O9XabcTEVr2Z7uPyFgA=="
+  "resolved" "https://registry.npmjs.org/react-slide-fade-in/-/react-slide-fade-in-1.0.9.tgz"
+  "version" "1.0.9"
+
 "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@^18.1.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.1.0":
   "integrity" "sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
