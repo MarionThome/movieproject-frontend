@@ -2,7 +2,7 @@ import styles from "../styles/Feelings.module.css"
 import { questions } from "../questions";
 import { useState, useEffect } from "react";
 import QuestionTitle from "./QuestionTitle";
-import Questions from "./Questions";
+import Answer from "./Answer"; 
 import ProgressBar from "./ProgressBar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -10,13 +10,12 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export default function feelings() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState([])
-  const [isSelected, setSelected] = useState(false)
-  const [selectedIndex, setSelectedIndex] = useState()
+
+  const [selectedIndex, setSelectedIndex] = useState(-1)
 
   const getAnswers = () => {
-    const newAnswers = questions[index].answers.map((item, i) => {
-      console.log(isSelected);
-      return <Questions data={item} handleSelect = {handleSelect} key = {i} index = {i}/>;
+    const newAnswers = questions[index].answers.map((item, i) => { 
+      return <Answer data={item} handleSelect = {handleSelect} key = {i} index = {i} isClicked = {selectedIndex === i}/>;
     });
     setAnswers([newAnswers])
   }
@@ -27,7 +26,7 @@ export default function feelings() {
 
   useEffect(() => {
     getAnswers()
-  }, [isSelected])
+  }, [selectedIndex])
 
 
   const handlePrev = () => {
@@ -36,19 +35,18 @@ export default function feelings() {
     }
   }
 
-  const handleSelect = () => {
-    console.log("coucou")
-    setSelected(!isSelected)
+  const handleSelect = (indexToSelect) => {
+    setSelectedIndex(indexToSelect)
   }
 
   const handleNext = () => {
-    if(isSelected){
-      setSelected(false)
+    if(selectedIndex > -1){
       setIndex(previndex => previndex+1)
+      setSelectedIndex(-1)
     }
   }
 
-  console.log(isSelected)
+
 
   return (
     <main>
@@ -59,7 +57,7 @@ export default function feelings() {
       <div className={styles.iconsContainer}>
       <FontAwesomeIcon icon={faArrowLeft} size="2x"  onClick={() => handlePrev()} style = {index === 0 ? {color : "#f8ebe1", cursor : "default"} : {color : "#ff2742", cursor : "pointer" }}/>
       <ProgressBar progression = {(index+1)/5*100}/>
-      <FontAwesomeIcon icon={faArrowRight}size="2x" onClick={() => handleNext()} style = {!isSelected ? {color : "#f8ebe1", cursor : "default"} : {color : "#ff2742", cursor : "pointer" }}/>
+      <FontAwesomeIcon icon={faArrowRight}size="2x" onClick={() => handleNext()} style = {selectedIndex === -1 ? {color : "#f8ebe1", cursor : "default"} : {color : "#ff2742", cursor : "pointer" }}/>
       </div>
     </main>
   );
