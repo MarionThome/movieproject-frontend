@@ -1,11 +1,4 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 4rem 0;
-}
+
 
 .title {
   line-height: 1.15;
@@ -19,4 +12,21 @@
 
 .title a:hover, .title a:focus, .title a:active {
   text-decoration: underline;
+}
+
+.button {
+  border: 0px;
+  height: 50%;
+  width : 50%;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size : 2rem;
+  background-color: white;
+  font-family: 'Dancing Script', cursive;
+  cursor: pointer;
+  
+}
+
+.button:hover{
+  color: #ff2742;
 }
