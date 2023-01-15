@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function  Question(props){
     const [isClicked, setClicked] = useState(false) 
@@ -7,10 +7,6 @@ export default function  Question(props){
         setClicked(!isClicked)
         props.handleSelect()
     }
-
-    useEffect(() => {
-      setClicked(false)  
-    }, [])
 
     return(
         <div>

@@ -11,10 +11,12 @@ export default function feelings() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState([])
   const [isSelected, setSelected] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState()
 
   const getAnswers = () => {
-    const newAnswers = questions[index].answers.map((item) => {
-      return <Questions data={item} handleSelect = {handleSelect} isSelected = {false}/>;
+    const newAnswers = questions[index].answers.map((item, i) => {
+      console.log(isSelected);
+      return <Questions data={item} handleSelect = {handleSelect} key = {i} index = {i}/>;
     });
     setAnswers([newAnswers])
   }
@@ -27,6 +29,7 @@ export default function feelings() {
     getAnswers()
   }, [isSelected])
 
+
   const handlePrev = () => {
     if(index > 0){
       setIndex(index-1)
@@ -34,15 +37,18 @@ export default function feelings() {
   }
 
   const handleSelect = () => {
+    console.log("coucou")
     setSelected(!isSelected)
   }
 
   const handleNext = () => {
     if(isSelected){
-      setIndex(previndex => previndex+1)
       setSelected(false)
+      setIndex(previndex => previndex+1)
     }
   }
+
+  console.log(isSelected)
 
   return (
     <main>
