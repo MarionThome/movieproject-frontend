@@ -6,12 +6,13 @@ import Answer from "./Answer";
 import ProgressBar from "./ProgressBar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from "next/router";
 
 export default function feelings() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState([])
-
   const [selectedIndex, setSelectedIndex] = useState(-1)
+  const router = useRouter()
 
   const getAnswers = () => {
     const newAnswers = questions[index].answers.map((item, i) => { 
@@ -40,10 +41,14 @@ export default function feelings() {
   }
 
   const handleNext = () => {
-    if(selectedIndex > -1){
+    if(selectedIndex > -1 &&  selectedIndex < 4){
       setIndex(previndex => previndex+1)
       setSelectedIndex(-1)
+    } 
+    if(selectedIndex === 4){
+      router.push("/result")
     }
+
   }
 
 
