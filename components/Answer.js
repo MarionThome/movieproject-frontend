@@ -1,3 +1,4 @@
+import styles from "../styles/Answers.module.css"
 import { useState } from "react"
 
 export default function  Answer(props){
@@ -8,8 +9,8 @@ export default function  Answer(props){
     }
 
     return(
-        <div>
-            <p style={{color : props.isClicked ? "red" : "black"}} onClick={() => handleClick()}>{props.data.answer}</p>
+        <div className={styles.answer} onClick={() => handleClick()} style={{borderColor : props.isClicked ? "#ff2742" : "#f8ebe1"}} >
+            <p >{props.data.answer}</p>
         </div>
     )
 }

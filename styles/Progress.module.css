@@ -1,0 +1,22 @@
+.progressContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width : 100%
+}
+
+.progressBarContainer{
+    background-color: #f8ebe1;
+    height: 15px;
+    width: 70%; 
+    border-radius: 15px ;
+}
+
+.progressBar{
+    background-color: #ff2742;
+    height: 100%;
+    border-radius: 15px
+}
+/* .progress{
+    props.isClicked ? "#ff2742" : "#f8ebe1"
+} */

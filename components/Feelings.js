@@ -50,8 +50,8 @@ export default function feelings() {
 
   return (
     <main>
-       <QuestionTitle question={questions[index].question} /> 
-      <div>
+       <h1>{questions[index].question}</h1>
+      <div className={styles.answerContainer}>
         {answers}
       </div>
       <div className={styles.iconsContainer}>

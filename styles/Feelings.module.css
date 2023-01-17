@@ -1,7 +1,15 @@
 .iconsContainer{
     display: flex;
     justify-content: space-around;
-   width: 30%;
+   width: 60%;
    height: 3rem;
    cursor: pointer;
+}
+
+.answerContainer{
+    width : 60%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
 }
