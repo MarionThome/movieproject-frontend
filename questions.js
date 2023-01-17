@@ -67,7 +67,7 @@ export const questions = [
     ]
   }, 
   {
-    question : "Any prefernce regarding the realease date ?", 
+    question : "Any preference regarding the realease date ?", 
     answers : [
         {
             answer : 1980

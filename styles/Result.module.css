@@ -9,7 +9,7 @@
 }
 
 .movieTitle{
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
 .starContainer{
@@ -20,6 +20,7 @@
 .titleContainer{
     justify-content: flex-start;
     align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .movieInfos{
@@ -29,11 +30,12 @@
     align-items: flex-start;
     justify-content:flex-start;
     width: 40%;
-    margin-right: 30px;
+    margin-right: 60px;
+    margin-left : 20px;
 }
 
 .movieResume{
-    text-align:justify; 
+    text-align:left; 
     font-size: 15px;
 }
 
@@ -62,10 +64,6 @@
     justify-items: center;
     width: 50%;
 }
-
-/* {
-    margin: auto;
-} */
 
 .arrows{
     height: 40px;

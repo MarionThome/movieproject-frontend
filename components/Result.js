@@ -19,21 +19,17 @@ export default function Result() {
         ></img>
         <div className={styles.movieInfos}>
           <div className={styles.titleContainer}>
-            <h1 className={styles.movieTitle}>Movie Title</h1>
+            <h1 className={styles.movieTitle}>The Jocker</h1>
             <div className={styles.starContainer}>
-              <FontAwesomeIcon icon={faStar} style={{ color: "#f8ebe1" }} />
-              <FontAwesomeIcon icon={faStar} style={{ color: "#f8ebe1" }} />
-              <FontAwesomeIcon icon={faStar} style={{ color: "#f8ebe1" }} />
-              <FontAwesomeIcon icon={faStar} style={{ color: "#f8ebe1" }} />
+              <FontAwesomeIcon icon={faStar} style={{ color: "#ff2742" }} />
+              <FontAwesomeIcon icon={faStar} style={{ color: "#ff2742" }} />
+              <FontAwesomeIcon icon={faStar} style={{ color: "#ff2742" }} />
+              <FontAwesomeIcon icon={faStar} style={{ color: "#ff2742" }} />
               <FontAwesomeIcon icon={faStar} style={{ color: "#f8ebe1" }} />
             </div>
           </div>
           <p className={styles.movieResume}>
-            Arthur Fleck, comédien raté, rencontre des voyous violents en errant
-            dans les rues de Gotham City déguisé en clown. Méprisé par la
-            société, Fleck s'enfonce peu à peu dans la démence et devient le
-            génie criminel connu sous le nom de Joker, un dangereux tueur
-            psychotique.
+          A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain.
           </p>
           {/* https://image.tmdb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg */}
         </div>
@@ -51,15 +47,15 @@ export default function Result() {
             style={{ color: "#f8ebe1", cursor: "pointer" }}
             transform="left-0"
           />
-          <p style={{margin : "auto"}}>Start  Over</p>
+          <p style={{ margin: "auto" }}>Start Over</p>
         </div>
         <div className={styles.arrows}>
-          <p style={{margin : "auto"}}> Another </p>
+          <p style={{ margin: "auto" }}> Another </p>
           <FontAwesomeIcon
             icon={faArrowRight}
             size="2x"
-            style={{ color: "#ff2742", cursor: "pointer"  }}
-            align-self= "flex-end"
+            style={{ color: "#ff2742", cursor: "pointer" }}
+            align-self="flex-end"
           />
         </div>
       </div>
