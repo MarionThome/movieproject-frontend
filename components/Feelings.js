@@ -41,11 +41,12 @@ export default function feelings() {
   }
 
   const handleNext = () => {
-    if(selectedIndex > -1 &&  selectedIndex < 4){
+
+    if(index > -1 &&  index < 4){
       setIndex(previndex => previndex+1)
       setSelectedIndex(-1)
     } 
-    if(selectedIndex === 4){
+    if(index === 4){
       router.push("/result")
     }
 

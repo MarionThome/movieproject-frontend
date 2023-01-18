@@ -27,8 +27,16 @@ export const moviesSlice = createSlice({
     addRealeaseDateToStore: (state, action) => {
       state.value.realeaseDate = action.payload;
     },
+    resetAll: (action, payload) => {
+      state.value =  {
+        platform: "",
+        userMood: "",
+        genreId: [],
+        realeaseDate: "",
+      }
+    }
   },
 });
 
-export const { addAditionalIdToStore, addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore} = moviesSlice.actions;
+export const { addAditionalIdToStore, addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore, resetAll} = moviesSlice.actions;
 export default moviesSlice.reducer;

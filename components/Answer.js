@@ -1,7 +1,7 @@
 import styles from "../styles/Answers.module.css"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addAditionalIdToStore, addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore} from '../reducers/movies'
+import { addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore} from '../reducers/movies'
 
 export default function  Answer(props){
     const dispatch = useDispatch()
