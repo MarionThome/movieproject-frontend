@@ -30,13 +30,13 @@ export const questions = [
         answer : "I want to feel adventurous", 
         ids : {
             movie : [28, 12], 
-            tv : 10759
+            tv : [10759]
         }
     }, {
         answer : "I want to laught", 
         ids : {
-            movie : 35, 
-            tv : 35
+            movie : [35], 
+            tv : [35]
         }
     }, 
     {
@@ -48,8 +48,8 @@ export const questions = [
     }, {
         answer : "I want to be scared", 
         ids : {
-            movie : 27, 
-            tv : 9648
+            movie : [27], 
+            tv : [9648]
         }
     }
 ],
@@ -58,8 +58,8 @@ export const questions = [
     answers : [{
         answer: "A magical one", 
         ids : {
-            movie : 14, 
-            tv : 10765
+            movie : [14], 
+            tv : [10765]
         }}, 
         {
         answer : "This one is fine", 

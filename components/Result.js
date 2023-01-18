@@ -6,8 +6,11 @@ import {
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 export default function Result() {
+  const movies = useSelector((state) => state.movies.value)
+  const router = useRouter()
   return (
     <main>
       <div className={styles.movieContainer}>
@@ -46,6 +49,7 @@ export default function Result() {
             size="2x"
             style={{ color: "#f8ebe1", cursor: "pointer" }}
             transform="left-0"
+            onClick={() => {router.push("/feelings")}}
           />
           <p style={{ margin: "auto" }}>Start Over</p>
         </div>

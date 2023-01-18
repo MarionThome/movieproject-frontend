@@ -16,7 +16,7 @@ export default function feelings() {
 
   const getAnswers = () => {
     const newAnswers = questions[index].answers.map((item, i) => { 
-      return <Answer data={item} handleSelect = {handleSelect} key = {i} index = {i} isClicked = {selectedIndex === i}/>;
+      return <Answer data={item} handleSelect = {handleSelect} key = {i} index = {i} isClicked = {selectedIndex === i} questionNum = {index + 1}/>;
     });
     setAnswers([newAnswers])
   }

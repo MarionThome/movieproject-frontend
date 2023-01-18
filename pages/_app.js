@@ -1,10 +1,18 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import popcorn from "../assets/ma__s-souffl__-de-cin__ma.jpg";
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import movies from "../reducers/movies";
+
+const store = configureStore({
+  reducer: { movies },
+ });
+
 
 function App({ Component, pageProps }) {
   return (
-    <>
+    <Provider store={store}>
       <Head>
         <title>Moodies</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +37,7 @@ function App({ Component, pageProps }) {
         ></div>
         <Component {...pageProps} />
       </div>
-    </>
+    </Provider>
   );
 }
 
