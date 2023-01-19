@@ -7,8 +7,11 @@ import ProgressBar from "./ProgressBar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from "next/router";
+import { resetAll } from "../reducers/movies";
+import { useDispatch } from "react-redux";
 
 export default function feelings() {
+  const dispatch = useDispatch()
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState([])
   const [selectedIndex, setSelectedIndex] = useState(-1)
@@ -20,6 +23,10 @@ export default function feelings() {
     });
     setAnswers([newAnswers])
   }
+
+  useEffect(() => {
+    dispatch(resetAll())
+  }, [])
  
   useEffect(() => {
     getAnswers() 

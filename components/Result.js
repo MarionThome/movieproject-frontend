@@ -20,8 +20,13 @@ export default function Result() {
   const [resume, setResume] = useState("A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain.")
   const [imagePath, setImagePath] = useState("https://fr.web.img4.acsta.net/c_310_420/pictures/19/09/03/12/02/4765874.jpg")
   const [voteCount, setVoteCount] = useState(0)
+  const [movieID, setMovieId] = useState(0)
+  const [providers, setProviders] = useState(["none"])
+  const [providerList, setProviderList] = useState([])
+  console.log(movies)
 
   const getMovie = () =>{
+    setProviderList([])
     fetch(`http://localhost:3000/movies/selection/${movies.platform}/${movies.genreId.join()}/${movies.realeaseDate}/`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
@@ -32,23 +37,51 @@ export default function Result() {
         else {
           setTitle(data.result.title)
         }
+        setMovieId(data.result.id)
         setRating(Math.round(data.result.vote_average/2, 0))
         setResume(data.result.overview)
         setImagePath(`https://image.tmdb.org/t/p/original/${data.result.poster_path}`)
         setVoteCount(data.result.vote_count)
+      }).then(() => {
+        getProvider()
       })
   }
   useEffect(() =>{
     if(!movies.platform){
-      router.push("/feelings")
+      startOver()
     } else {
       getMovie()
     }
 
   }, [])
 
+  
+ let providersImg = []
+    
+    if(providers && providers[0] !== "none"){
+      providersImg = providers[0].map((provider) => {
+        return <img src= {`https://image.tmdb.org/t/p/original${provider["logo_path"]}`} />
+      })}
+
+      console.log(providersImg)
+
+const getProvider = () => {
+  if(movieID){
+    fetch(`http://localhost:3000/movies/id/${movieID}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }).then((res) => res.json()).then((data) => {
+      if(data.result){
+        setProviders([data.result])
+      }
+      else{
+        setProviders(["none"])
+      }
+    })
+  }
+}
+
   const startOver = () =>  {
-    dispatch(resetAll)
     {router.push("/feelings")}
   }
 
@@ -60,8 +93,16 @@ export default function Result() {
     }
   }
 
-
-  console.log(rating)
+  // if(providers[0] !== "none"){
+  //   console.log(providers)
+  //   providerList = providers.map((provider) => {
+  //     console.log(provider)
+  //     return <img src= {`https://image.tmdb.org/t/p/original${provider[0].logo_path}`} />
+  //   } )
+  // }
+  console.log(providers)
+  console.log("PROVIDERLIST --->", providerList)
+  
   return (
     <main>
       <div className={styles.movieContainer}>
@@ -90,9 +131,7 @@ export default function Result() {
           {/* https://image.tmdb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg */}
         </div>
         <div className={styles.provider}>
-          <img src="https://image.tmdb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" />
-          <img src="https://image.tmdb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" />
-          <img src="https://image.tmdb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" />
+              {providersImg && providersImg}
         </div>
       </div>
       <div className={styles.arrowContainer}>

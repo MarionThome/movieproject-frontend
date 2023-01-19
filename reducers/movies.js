@@ -27,13 +27,16 @@ export const moviesSlice = createSlice({
     addRealeaseDateToStore: (state, action) => {
       state.value.realeaseDate = action.payload;
     },
-    resetAll: (action, payload) => {
+    resetAll: (state, action) => {
       state.value =  {
         platform: "",
         userMood: "",
         genreId: [],
         realeaseDate: "",
       }
+    },
+    resetIds: (action, payload) => {
+      state.value.genreId = []
     }
   },
 });

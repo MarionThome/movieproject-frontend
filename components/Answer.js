@@ -1,5 +1,5 @@
 import styles from "../styles/Answers.module.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore} from '../reducers/movies'
 
@@ -19,16 +19,21 @@ export default function  Answer(props){
             
 
             if(typeof(props.data.ids[movies.platform]) === Object){
+                
                 props.data.ids[movies.platform].forEach(item => {
                     dispatch(addGenreIdToStore(item))
                 });
             }
             else {
+                console.log(props.data.ids[movies.platform])
                 dispatch(addGenreIdToStore(props.data.ids[movies.platform]))
             }
         }
-        if(props.questionNum === 5){
-            dispatch(addRealeaseDateToStore(`primary_release_date.gte=${props.data.answer}-01-01&primary_release_date.lte=${props.data.answer}-12-31`))
+        if(props.questionNum === 5 && movies.platform === "movie"){
+            dispatch(addRealeaseDateToStore(`primary_release_date.gte=${props.data.answer}-01-01&primary_release_date.lte=${props.data.answer + 10}-12-31`))
+        }
+        if(props.questionNum === 5 && movies.platform === "tv"){
+            dispatch(addRealeaseDateToStore(`&first_air_date.gte=${props.data.answer}-01-01&first_air_date.gte=${props.data.answer}-12-31`))
         }
     }
 
