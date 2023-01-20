@@ -2,6 +2,9 @@ import styles from "../styles/Answers.module.css"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore} from '../reducers/movies'
+import moment from "moment"
+
+const date = new Date(); 
 
 export default function  Answer(props){
     const dispatch = useDispatch()
@@ -31,10 +34,10 @@ export default function  Answer(props){
             }
         }
         if(props.questionNum === 5 && movies.platform === "movie"){
-            dispatch(addRealeaseDateToStore(`primary_release_date.gte=${props.data.answer}-01-01&primary_release_date.lte=${props.data.answer + 10}-12-31`))
+            dispatch(addRealeaseDateToStore(`primary_release_date.gte=${props.data.answer}-01-01&primary_release_date.lte=${props.data.answer === 2020 ? moment(date).format("YYYY-MM-DD") : props.data.answer + 10 + "-12-31"}`))
         }
         if(props.questionNum === 5 && movies.platform === "tv"){
-            dispatch(addRealeaseDateToStore(`&first_air_date.gte=${props.data.answer}-01-01&first_air_date.gte=${props.data.answer + 10}-12-31`))
+            dispatch(addRealeaseDateToStore(`&first_air_date.gte=${props.data.answer}-01-01&first_air_date.gte=${props.data.answer === 2020 ? moment(date).format("YYYY-MM-DD") : props.data.answer + 10 + "-12-31"}`))
         }
     }
 
