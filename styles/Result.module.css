@@ -55,6 +55,8 @@
 .provider > img {
     width: 80%;
     border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 10px;
 }
 
 .arrowContainer{
