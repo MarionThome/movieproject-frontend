@@ -8,7 +8,9 @@ export default function  Answer(props){
     const movies =  useSelector((state) => state.movies.value)
 
     const handleClick = () => {
+
         props.handleSelect(props.index)
+
         if (props.questionNum === 1){
             dispatch(addPlatformToStore(props.data.keyword))
         }
@@ -25,7 +27,6 @@ export default function  Answer(props){
                 });
             }
             else {
-                console.log(props.data.ids[movies.platform])
                 dispatch(addGenreIdToStore(props.data.ids[movies.platform]))
             }
         }
@@ -33,7 +34,7 @@ export default function  Answer(props){
             dispatch(addRealeaseDateToStore(`primary_release_date.gte=${props.data.answer}-01-01&primary_release_date.lte=${props.data.answer + 10}-12-31`))
         }
         if(props.questionNum === 5 && movies.platform === "tv"){
-            dispatch(addRealeaseDateToStore(`&first_air_date.gte=${props.data.answer}-01-01&first_air_date.gte=${props.data.answer}-12-31`))
+            dispatch(addRealeaseDateToStore(`&first_air_date.gte=${props.data.answer}-01-01&first_air_date.gte=${props.data.answer + 10}-12-31`))
         }
     }
 

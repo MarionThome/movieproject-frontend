@@ -32,6 +32,7 @@ export default function Result() {
         headers: { 'Content-Type': 'application/json' },
       }).then(res => res.json()).then((data) => {
         if(movies.platform === "tv"){
+          console.log(data)
           setTitle(data.result.name)
         }
         else {
@@ -42,10 +43,12 @@ export default function Result() {
         setResume(data.result.overview)
         setImagePath(`https://image.tmdb.org/t/p/original/${data.result.poster_path}`)
         setVoteCount(data.result.vote_count)
-      }).then(() => {
+      })
+      .then(() => {
         getProvider()
       })
   }
+
   useEffect(() =>{
     if(!movies.platform){
       startOver()
@@ -60,7 +63,7 @@ export default function Result() {
     
     if(providers && providers[0] !== "none"){
       providersImg = providers[0].map((provider) => {
-        return <img src= {`https://image.tmdb.org/t/p/original${provider["logo_path"]}`} />
+        return <img src= {`https://image.tmdb.org/t/p/original${provider["logo_path"]}`}  />
       })}
 
       console.log(providersImg)
@@ -72,6 +75,7 @@ const getProvider = () => {
       headers: { 'Content-Type': 'application/json' },
     }).then((res) => res.json()).then((data) => {
       if(data.result){
+        console.log(data)
         setProviders([data.result])
       }
       else{
@@ -92,16 +96,6 @@ const getProvider = () => {
       star.push( <FontAwesomeIcon icon={faStar} style={{ color: rating >= i ? "#ff2742" : "#f8ebe1" }} />)
     }
   }
-
-  // if(providers[0] !== "none"){
-  //   console.log(providers)
-  //   providerList = providers.map((provider) => {
-  //     console.log(provider)
-  //     return <img src= {`https://image.tmdb.org/t/p/original${provider[0].logo_path}`} />
-  //   } )
-  // }
-  console.log(providers)
-  console.log("PROVIDERLIST --->", providerList)
   
   return (
     <main>
