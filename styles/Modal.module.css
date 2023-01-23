@@ -1,0 +1,32 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1040;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.modalWrapper {
+    background-color: white;
+    width: 50%;
+    max-height: 60%;
+    overflow: scroll;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.iconContainer {
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.textContainer {
+    overflow: scroll;
+    height: 100%;
+}
