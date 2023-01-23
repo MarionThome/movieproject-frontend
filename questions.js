@@ -42,8 +42,8 @@ export const questions = [
     {
         answer : "I want to see people suffer", 
         ids : {
-            movie : [18], 
-            tv : [18]
+            movie : [80], 
+            tv : [80]
         }
     }, {
         answer : "I want to be scared", 

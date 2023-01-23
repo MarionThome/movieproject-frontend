@@ -108,7 +108,7 @@ const getProvider = () => {
         ></img>
         <div className={styles.movieInfos}>
           <div className={styles.titleContainer}>
-            <h1 className={styles.movieTitle}>{title}</h1>
+            <h1 className={styles.movieTitle} style={{fontSize : title.length > 20 ? "2rem" : "3rem"  }}>{title}</h1>
             <div className={styles.starContainer}>
               {star}
               {/* <FontAwesomeIcon icon={faStar} style={{ color: "#ff2742" }} />
@@ -120,8 +120,10 @@ const getProvider = () => {
             </div>
           </div>
           <p className={styles.movieResume}>
-            {resume}
+            {resume.length === 0 && "No description available"}
+            {resume.length > 330 ? resume.slice(0,330) + "..." : resume}
           </p>
+          <p style = {{cursor : "pointer" , color : "red"}}>{resume.length > 330 && "Read More"}</p>
           {/* https://image.tmdb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg */}
         </div>
         <div className={styles.provider}>
