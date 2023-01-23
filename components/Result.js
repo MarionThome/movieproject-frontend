@@ -25,12 +25,11 @@ export default function Result() {
   const [voteCount, setVoteCount] = useState(0);
   const [movieID, setMovieId] = useState(0);
   const [providers, setProviders] = useState(["none"]);
-  const [providerList, setProviderList] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   console.log(movies);
 
   const getMovie = () => {
-    setProviderList([]);
+
     fetch(
       `http://localhost:3000/movies/selection/${
         movies.platform
@@ -86,14 +85,13 @@ export default function Result() {
 
   const getProvider = () => {
     if (movieID) {
-      fetch(`http://localhost:3000/movies/id/${movieID}`, {
+      fetch(`http://localhost:3000/movies/id/${movies.platform}/${movieID}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.result) {
-            console.log(data);
             setProviders([data.result]);
           } else {
             setProviders(["none"]);
