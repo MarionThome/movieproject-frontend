@@ -24,6 +24,7 @@ function App({ Component, pageProps }) {
       </Head>
       <div style={{ display: "flex" }}>
         <div
+          id = "popcorn"
           style={{
             backgroundImage: `url(${popcorn.src})`,
             height: "100vh",

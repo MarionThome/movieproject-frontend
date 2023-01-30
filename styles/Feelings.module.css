@@ -13,3 +13,11 @@
     flex-wrap: wrap;
     
 }
+
+@media (max-width: 600px) {
+    .answerContainer{
+        flex-direction: column;
+        width: 80%;
+    }
+  }
+  

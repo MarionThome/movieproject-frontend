@@ -30,3 +30,10 @@
     overflow: scroll;
     height: 100%;
 }
+
+@media (max-width: 600px) {
+    .modalWrapper{
+        height: 90%;
+        width: 90%;
+    }
+}
