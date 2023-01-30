@@ -33,7 +33,7 @@
 
 @media (max-width: 600px) {
     .modalWrapper{
-        height: 90%;
+        max-height: 90%;
         width: 90%;
     }
 }
