@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: {
+    request : "default",
     platform: "",
     userMood: "",
     genreId: [],
@@ -14,6 +15,9 @@ export const moviesSlice = createSlice({
 
   initialState,
   reducers: {
+    addRequestToStore : (state, action) => {
+      state.value.request = action.payload;
+    },
     addPlatformToStore: (state, action) => {
       state.value.platform = action.payload;
     },
@@ -29,6 +33,7 @@ export const moviesSlice = createSlice({
     },
     resetAll: (state, action) => {
       state.value =  {
+        request : "",
         platform: "",
         userMood: "",
         genreId: [],
@@ -41,5 +46,5 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { addAditionalIdToStore, addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore, resetAll} = moviesSlice.actions;
+export const { addAditionalIdToStore, addPlatformToStore, addUserMoodToStore, addGenreIdToStore, addRealeaseDateToStore, resetAll, addRequestToStore} = moviesSlice.actions;
 export default moviesSlice.reducer;

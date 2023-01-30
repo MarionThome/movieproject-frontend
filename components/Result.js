@@ -26,14 +26,21 @@ export default function Result() {
   const [movieID, setMovieId] = useState(0);
   const [providers, setProviders] = useState(["none"]);
   const [isVisible, setIsVisible] = useState(false);
+  const [random, setRandom] = useState("")
   console.log(movies);
 
-  const getMovie = () => {
+  const fetchRequest = {
+    "default" : 
+    `http://localhost:3000/movies/selection/${
+      movies.platform
+    }/${movies.genreId.join()}/${movies.realeaseDate}/`, 
+    "random tv-show" : "http://localhost:3000/movies//randomtv", 
+    "random movie" :  "http://localhost:3000/movies/randommovie"
+   }
 
+  const getMovie = () => {
     fetch(
-      `http://localhost:3000/movies/selection/${
-        movies.platform
-      }/${movies.genreId.join()}/${movies.realeaseDate}/`,
+      fetchRequest[movies.request],
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

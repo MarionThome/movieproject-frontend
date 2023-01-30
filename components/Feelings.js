@@ -2,6 +2,7 @@ import styles from "../styles/Feelings.module.css"
 import { questions } from "../questions";
 import { useState, useEffect } from "react";
 import QuestionTitle from "./QuestionTitle";
+import NavBar from "./NavBar";
 import Answer from "./Answer"; 
 import ProgressBar from "./ProgressBar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -63,6 +64,7 @@ export default function feelings() {
 
   return (
     <main>
+      <NavBar />
        <h1>{questions[index].question}</h1>
       <div className={styles.answerContainer}>
         {answers}

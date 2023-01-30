@@ -9,7 +9,6 @@ const store = configureStore({
   reducer: { movies },
  });
 
-
 function App({ Component, pageProps }) {
   return (
     <Provider store={store}>

@@ -1,5 +1,6 @@
 import styles from '../styles/Home.module.css';
 import {useRouter} from 'next/router'
+import NavBar from './NavBar';
 
 function Home() {
   const router = useRouter();
@@ -8,6 +9,7 @@ function Home() {
   }
   return (
       <main className={styles.main}>
+        <NavBar />
         <h1 className={styles.title}>
           Welcome to Moodies
         </h1>
