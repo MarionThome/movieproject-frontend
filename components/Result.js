@@ -14,10 +14,10 @@ export default function Result() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies.value);
   const router = useRouter();
-  const [title, setTitle] = useState("The Jocker");
+  const [title, setTitle] = useState("Lorem ipsum dolor");
   const [rating, setRating] = useState(4);
   const [resume, setResume] = useState(
-    "A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain."
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem."
   );
   const [imagePath, setImagePath] = useState(
     "https://tube.hk/images/titles_cache/x1000x1375_movienophoto_2014_1000x1375.jpg.pagespeed.ic.LxSGI5Sl2L.webp"
