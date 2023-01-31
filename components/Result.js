@@ -26,26 +26,20 @@ export default function Result() {
   const [movieID, setMovieId] = useState(0);
   const [providers, setProviders] = useState(["none"]);
   const [isVisible, setIsVisible] = useState(false);
-  const [random, setRandom] = useState("")
+  const [random, setRandom] = useState("");
   console.log(movies);
 
   const fetchRequest = {
-    "default" : 
-    `http://localhost:3000/movies/selection/${
-      movies.platform
-    }/${movies.genreId.join()}/${movies.realeaseDate}/`, 
-    "random tv-show" : "http://localhost:3000/movies//randomtv", 
-    "random movie" :  "http://localhost:3000/movies/randommovie"
-   }
+    default: `http://localhost:3000/movies/selection/${movies.platform}/${movies.genreId.join()}/${movies.realeaseDate}/`,
+    "random tv-show": "http://localhost:3000/movies//randomtv",
+    "random movie": "http://localhost:3000/movies/randommovie",
+  };
 
   const getMovie = () => {
-    fetch(
-      fetchRequest[movies.request],
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      }
-    )
+    fetch(fetchRequest[movies.request], {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (movies.platform === "tv") {
@@ -126,12 +120,14 @@ export default function Result() {
   }
 
   const toggleModal = () => {
-    setIsVisible(!isVisible)
-  }
+    setIsVisible(!isVisible);
+  };
 
   return (
     <main>
-      {isVisible && <Modal title={title} resume={resume} toggleModal = {toggleModal}/>}
+      {isVisible && (
+        <Modal title={title} resume={resume} toggleModal={toggleModal} />
+      )}
       <div className={styles.movieContainer}>
         <img src={imagePath} className={styles.poster}></img>
         <div className={styles.movieInfos}>
@@ -156,7 +152,6 @@ export default function Result() {
             style={{ cursor: "pointer", color: "red" }}
           >
             {resume.length > 330 && "Read More"}
-
           </p>
         </div>
         <div className={styles.provider}>{providersImg && providersImg}</div>

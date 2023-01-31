@@ -33,7 +33,7 @@ export const moviesSlice = createSlice({
     },
     resetAll: (state, action) => {
       state.value =  {
-        request : "",
+        request : "default",
         platform: "",
         userMood: "",
         genreId: [],
