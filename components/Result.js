@@ -33,7 +33,7 @@ export default function Result() {
 
   const fetchRequest = {
     default: `https://movieproject-backend.vercel.app/movies/selection/${movies.platform}/${movies.genreId.join()}/${movies.realeaseDate}/`,
-    "random tv-show": "https://movieproject-backend.vercel.app/movies//randomtv",
+    "random tv-show": "https://movieproject-backend.vercel.app/movies/randomtv",
     "random movie": "https://movieproject-backend.vercel.app/movies/randommovie",
   };
 
