@@ -57,7 +57,6 @@ export default function feelings() {
     if(index === 4){
       router.push("/result")
     }
-
   }
 
 
@@ -91,7 +90,7 @@ export default function feelings() {
         <FontAwesomeIcon 
           icon={faArrowRight}
           size="2x" 
-          onClick={() => handleNext()} 
+          onClick={() => {selectedIndex > -1 && handleNext()}} 
           style = {
             selectedIndex === -1 ? {
               color : "#fff", 
