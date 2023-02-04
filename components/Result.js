@@ -32,9 +32,9 @@ export default function Result() {
   const [isVisible, setIsVisible] = useState(false);
 
   const fetchRequest = {
-    default: `http://localhost:3000/movies/selection/${movies.platform}/${movies.genreId.join()}/${movies.realeaseDate}/`,
-    "random tv-show": "http://localhost:3000/movies//randomtv",
-    "random movie": "http://localhost:3000/movies/randommovie",
+    default: `https://movieproject-backend.vercel.app/movies/selection/${movies.platform}/${movies.genreId.join()}/${movies.realeaseDate}/`,
+    "random tv-show": "https://movieproject-backend.vercel.app/movies//randomtv",
+    "random movie": "https://movieproject-backend.vercel.app/movies/randommovie",
   };
 
   const getMovie = () => {
@@ -86,7 +86,7 @@ export default function Result() {
 
   const getProvider = () => {
     if (movieID) {
-      fetch(`http://localhost:3000/movies/id/${movies.platform}/${movieID}`, {
+      fetch(`https://movieproject-backend.vercel.app/movies/id/${movies.platform}/${movieID}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })
