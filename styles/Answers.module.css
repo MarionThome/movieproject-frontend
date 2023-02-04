@@ -1,14 +1,27 @@
-.answer{
-    cursor: pointer;
-    border: 2px solid #ff2742;
+.answer {
     width: 40%;
-    padding: 5px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #fff;
+    border: none;
+    border-bottom: 6px solid #ff2742;
+    box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.1);
+    padding: 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0px;
+    transition: all 0.1s;
+    outline: none;
     margin-bottom: 20px;
-    border-radius: 10px;
-}
+  }
+  .answer:hover {
+    margin-top: 3px;
+    border-bottom-width: 3px;
+    cursor: pointer;
+  }
+  .answer:active {
+    margin-top: 5px;
+    border-bottom-width: 0px;
+  }
 
 @media (max-width: 600px) {
     .answer{

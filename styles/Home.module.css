@@ -1,19 +1,39 @@
-
-
-
-.button {
-  border: 0px;
-  height: 50%;
-  width : 50%;
-  font-weight: bold;
-  border-radius: 10px;
-  font-size : 2.5rem;
-  background-color: white;
-  font-family: 'Dancing Script', cursive;
-  cursor: pointer;
-  
+.wrapper {
+  margin-top: 80px;
+  position: relative;
 }
 
-.button:hover{
-  color: #ff2742;
+.h1 {
+  margin: 0;
+}
+
+.button{
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.button {
+  width: 200px;
+  height: 70px;
+  background: #fff;
+  border: none;
+  border-bottom: 6px solid #ff2742;
+  box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.1);
+  padding: 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0px;
+  transition: all 0.1s;
+  outline: none;
+}
+.button:hover {
+  bottom: -153px;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+.button:active {
+  margin-top: 5px;
+  border-bottom-width: 0px;
 }

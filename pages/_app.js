@@ -21,6 +21,7 @@ function App({ Component, pageProps }) {
           rel="stylesheet"
         />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Livvic:wght@700&display=swap" rel="stylesheet"/>
       </Head>
       <div style={{ display: "flex" }}>
         <div

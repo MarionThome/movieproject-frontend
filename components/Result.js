@@ -4,21 +4,25 @@ import {
   faStar,
   faArrowRight,
   faArrowLeft,
+  faCircleNotch
 } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
+import { FadeIn } from "react-slide-fade-in";
+
+
+const DEFAULT_TITLE = "Lorem ipsum dolor"
+const DEFAULT_RESUME = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem."
 
 export default function Result() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies.value);
   const router = useRouter();
-  const [title, setTitle] = useState("Lorem ipsum dolor");
+  const [title, setTitle] = useState(DEFAULT_TITLE);
   const [rating, setRating] = useState(4);
-  const [resume, setResume] = useState(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem."
-  );
+  const [resume, setResume] = useState(DEFAULT_RESUME);
   const [imagePath, setImagePath] = useState(
     "https://tube.hk/images/titles_cache/x1000x1375_movienophoto_2014_1000x1375.jpg.pagespeed.ic.LxSGI5Sl2L.webp"
   );
@@ -26,8 +30,6 @@ export default function Result() {
   const [movieID, setMovieId] = useState(0);
   const [providers, setProviders] = useState(["none"]);
   const [isVisible, setIsVisible] = useState(false);
-  const [random, setRandom] = useState("");
-  console.log(movies);
 
   const fetchRequest = {
     default: `http://localhost:3000/movies/selection/${movies.platform}/${movies.genreId.join()}/${movies.realeaseDate}/`,
@@ -82,8 +84,6 @@ export default function Result() {
     });
   }
 
-  console.log(providersImg);
-
   const getProvider = () => {
     if (movieID) {
       fetch(`http://localhost:3000/movies/id/${movies.platform}/${movieID}`, {
@@ -123,8 +123,26 @@ export default function Result() {
     setIsVisible(!isVisible);
   };
 
+  const dataHasLoaded = title === DEFAULT_TITLE && resume === DEFAULT_RESUME
+
+  if (dataHasLoaded) {
+    return (
+      <FontAwesomeIcon 
+        icon={faCircleNotch}
+        size="2x" 
+        className={styles.loading}
+      />
+    )
+  }
+
   return (
     <main>
+      <FadeIn
+      from="left"
+      positionOffset={200}
+      triggerOffset={200}
+      delayInMilliseconds={400}
+    >
       {isVisible && (
         <Modal title={title} resume={resume} toggleModal={toggleModal} />
       )}
@@ -161,7 +179,11 @@ export default function Result() {
           <FontAwesomeIcon
             icon={faArrowLeft}
             size="2x"
-            style={{ color: "#f8ebe1", cursor: "pointer" }}
+            style={{ 
+              color: "#fff", 
+              cursor: "pointer",
+              filter: "drop-shadow(0px 0px 10px rgb(0 0 0 / 0.4))"
+            }}
             transform="left-0"
             onClick={() => startOver()}
           />
@@ -172,12 +194,17 @@ export default function Result() {
           <FontAwesomeIcon
             icon={faArrowRight}
             size="2x"
-            style={{ color: "#ff2742", cursor: "pointer" }}
+            style={{ 
+              color: "#ff2742", 
+              cursor: "pointer",
+              filter: "drop-shadow(0px 0px 10px rgb(0 0 0 / 0.4))"
+            }}
             align-self="flex-end"
             onClick={() => getMovie()}
           />
         </div>
       </div>
+    </FadeIn>
     </main>
   );
 }

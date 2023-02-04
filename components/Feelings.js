@@ -65,14 +65,45 @@ export default function feelings() {
   return (
     <main>
       <NavBar />
-       <h1>{questions[index].question}</h1>
-      <div className={styles.answerContainer}>
-        {answers}
-      </div>
-      <div className={styles.iconsContainer}>
-      <FontAwesomeIcon icon={faArrowLeft} size="2x"  onClick={() => handlePrev()} style = {index === 0 ? {color : "#f8ebe1", cursor : "default"} : {color : "#ff2742", cursor : "pointer" }}/>
-      <ProgressBar progression = {(index+1)/5*100}/>
-      <FontAwesomeIcon icon={faArrowRight}size="2x" onClick={() => handleNext()} style = {selectedIndex === -1 ? {color : "#f8ebe1", cursor : "default"} : {color : "#ff2742", cursor : "pointer" }}/>
+      <div className={styles.feelingsWrapper}>
+        <h1>{questions[index].question}</h1>
+        <div className={styles.answerContainer}>
+          {answers}
+        </div>
+        <div className={styles.iconsContainer}>
+        <FontAwesomeIcon 
+          icon={faArrowLeft} 
+          size="2x"  
+          onClick={() => handlePrev()} 
+          style = {
+            index === 0 ? {
+              color : "#fff", 
+              cursor : "default",
+              filter: "drop-shadow(0px 0px 10px rgb(0 0 0 / 0.4))"
+              } : 
+            {
+              color : "#ff2742", 
+              cursor : "pointer",
+              filter: "drop-shadow(0px 0px 10px rgb(0 0 0 / 0.4))"
+            }
+          }/>
+        <ProgressBar progression = {(index+1)/5*100}/>
+        <FontAwesomeIcon 
+          icon={faArrowRight}
+          size="2x" 
+          onClick={() => handleNext()} 
+          style = {
+            selectedIndex === -1 ? {
+              color : "#fff", 
+              cursor : "default",
+              filter: "drop-shadow(0px 0px 10px rgb(0 0 0 / 0.4))"
+            } : {
+              color : "#ff2742", 
+              cursor : "pointer",
+              filter: "drop-shadow(0px 0px 10px rgb(0 0 0 / 0.4))"
+            }
+          }/>
+        </div>
       </div>
     </main>
   );
