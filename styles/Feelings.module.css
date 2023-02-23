@@ -23,7 +23,11 @@
 @media (max-width: 600px) {
     .answerContainer{
         flex-direction: column;
-        width: 80%;
+        margin: auto;
+        align-items: center;
+    }
+    .feelingsWrapper h1{
+        margin : 50px 0
     }
   }
   

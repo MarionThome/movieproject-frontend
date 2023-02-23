@@ -9,7 +9,6 @@ export default function NavBar(){
             <img src={logo.src} style={{
                 width: "140px", 
                 height: "55px", 
-                position: "absolute",
                 top: "5px",
                 cursor: "pointer"
             }} />

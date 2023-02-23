@@ -12,6 +12,7 @@
     transition: all 0.1s;
     outline: none;
     margin-bottom: 20px;
+    color: black;
   }
   .answer:hover {
     margin-top: 3px;
@@ -25,6 +26,6 @@
 
 @media (max-width: 600px) {
     .answer{
-        width: 100%;
+        width: 90vw;
     }
   }

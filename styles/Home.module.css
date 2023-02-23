@@ -1,9 +1,14 @@
 .wrapper {
   margin-top: 80px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
 }
 
-.h1 {
+.title {
   margin: 0;
 }
 

@@ -2,10 +2,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Livvic', sans-serif;
-  background: linear-gradient(-45deg, #EAB76A, #F8EBE1, #FAF7D6, #FF2742);
+  background: linear-gradient(-45deg, #e05960, #240b36);
 	background-size: 400% 400%;
 	animation: gradient 30s ease infinite;
 	height: 100vh;
+  color: white;
 }
 
 * {
@@ -37,6 +38,7 @@ h2{
   }
   main {
     width : 100%;
+    padding: 20px;
   }
   h1 {
     font-size: 2rem;
